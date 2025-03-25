@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="1-1"
+run/main_scene="uid://bvpf5h4h53aa5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rtex_binary_spritesheet_importer/plugin.cfg")
