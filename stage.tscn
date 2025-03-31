@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvpf5h4h53aa5"]
+[gd_scene load_steps=26 format=3 uid="uid://bvpf5h4h53aa5"]
 
 [ext_resource type="Texture2D" uid="uid://dg7divl6u007w" path="res://NES - Super Mario Bros - Tileset.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ctipnmholglnu" path="res://NES - Super Mario Bros - Item and Brick Blocks.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ct23m2s6f3sqb" path="res://NES - Super Mario Bros - Enemies & Bosses.png" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://brvtq2ovny0d2" path="res://NES - Super Mario Bros - Items Objects and NPCs.png" id="4_272bh"]
-[ext_resource type="PackedScene" uid="uid://ksrd2u44hbs5" path="res://player.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("1_1bvp3")
@@ -310,15 +309,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_ir8iy")
 }
 autoplay = "fireball"
-
-[node name="Player" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(8, 32)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
-drag_horizontal_enabled = true
-drag_horizontal_offset = 0.5
-drag_left_margin = 0.66
-drag_right_margin = 0.0
-editor_draw_drag_margin = true

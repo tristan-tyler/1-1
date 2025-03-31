@@ -6,6 +6,8 @@
 [node name="Main" type="Node2D"]
 texture_filter = 1
 
+[node name="Stage" parent="." instance=ExtResource("2_0xm2m")]
+
 [node name="Player" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(8, 32)
 
@@ -17,5 +19,3 @@ drag_horizontal_offset = 0.5
 drag_left_margin = 0.66
 drag_right_margin = 0.0
 editor_draw_drag_margin = true
-
-[node name="Stage" parent="." instance=ExtResource("2_0xm2m")]
