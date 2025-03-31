@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckcjxex6vhaha"]
+
+[ext_resource type="PackedScene" uid="uid://bvpf5h4h53aa5" path="res://stage.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ksrd2u44hbs5" path="res://player.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+
+[node name="Player" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(8, 32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_horizontal_offset = 0.5
+drag_left_margin = 0.66
+drag_right_margin = 0.0
+editor_draw_drag_margin = true
+
+[node name="Stage" parent="." instance=ExtResource("2_0xm2m")]
