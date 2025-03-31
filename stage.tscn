@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvpf5h4h53aa5"]
+[gd_scene load_steps=26 format=4 uid="uid://bvpf5h4h53aa5"]
 
 [ext_resource type="Texture2D" uid="uid://dg7divl6u007w" path="res://NES - Super Mario Bros - Tileset.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ctipnmholglnu" path="res://NES - Super Mario Bros - Item and Brick Blocks.png" id="2_lquwl"]
@@ -277,20 +277,20 @@ _data = {
 texture_filter = 1
 
 [node name="EnvironmentLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAAAAAAAAAAgAAkAAAAAAAAAAAAhAAkAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAADAAAAAAACAAMAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_ir8iy")
 use_kinematic_bodies = true
 
 [node name="BlockLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 7, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAEAAEAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_ta5nu")
 
 [node name="EnemyLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAIAAAACAAIAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_flf07")
 
 [node name="ItemsLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 5, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAEAAQABAAAAAAABAAEAAgAFAAAAAAACAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_nr8wp")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

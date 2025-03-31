@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var speed = 300
+var speed_max = 200
 var jump_speed = 14000
 var jump = true
 var jump_start = position
@@ -11,13 +12,18 @@ var friction = 0.05
 
 func _physics_process(delta: float) -> void:
 	var friction_offset = velocity.x * -friction
+	velocity.x += friction_offset
 	if Input.is_action_pressed("ui_left"):
 		velocity += Vector2.LEFT * delta * speed
 		velocity += Vector2.LEFT * abs(friction_offset) # offset friction during movement
+		if velocity.x < (Vector2.LEFT * speed_max).x:
+			velocity.x = (Vector2.LEFT * speed_max).x
 	elif Input.is_action_pressed("ui_right"):
 		velocity += Vector2.RIGHT * delta * speed
 		velocity += Vector2.RIGHT * abs(friction_offset) # offset friction during movement
-	velocity.x += friction_offset
+		if velocity.x > (Vector2.RIGHT * speed_max).x:
+			velocity.x = (Vector2.RIGHT * speed_max).x
+
 	if Input.is_action_pressed("ui_up") and jump:
 		if jump_start.y - jump_max > position.y:
 			jump = false
