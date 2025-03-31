@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-var speed = 200
-var jump_speed = 12000
+var speed = 300
+var jump_speed = 14000
 var jump = true
 var jump_start = position
 var jump_max = 80
 var gravity = 800
-var friction = 0.1
+var friction = 0.05
 
 
 func _physics_process(delta: float) -> void:
@@ -27,16 +27,14 @@ func _physics_process(delta: float) -> void:
 		jump = false
 
 	if move_and_slide():
-		var collision = get_last_slide_collision()
-		velocity += -collision.get_remainder()
-		if is_on_floor():
+		if is_on_ceiling_only():
+			jump = false
+		if is_on_floor_only():
 			jump = true
 			jump_start = position
-			velocity = Vector2(velocity.x, 0) # prevents animation glitches due to multiple collisions
-	else:
-		velocity += Vector2.DOWN * delta * gravity
+	velocity += Vector2.DOWN * delta * gravity
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var input_animation = "big_idle"
 	if Input.is_action_just_pressed("ui_left"):
 		$"AnimatedSprite2D".flip_h = false
@@ -46,7 +44,11 @@ func _process(_delta: float) -> void:
 		input_animation = "big_jump"
 	elif Input.is_action_pressed("ui_down"):
 		input_animation = "crouch"
-	elif abs(velocity.x) > speed * friction:
+	elif Input.is_action_pressed("ui_right") and 0.0 > velocity.x:
+		input_animation = "big_slide"
+	elif Input.is_action_pressed("ui_left") and 0.0 < velocity.x:
+		input_animation = "big_slide"
+	elif abs(velocity.x) > speed * delta:
 		input_animation = "big_run"
-		
+
 	$"AnimatedSprite2D".play(input_animation)

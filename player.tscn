@@ -110,7 +110,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ivps1")
 }],
 "loop": true,
-"name": &"big_stop",
+"name": &"big_slide",
 "speed": 5.0
 }, {
 "frames": [{
@@ -170,7 +170,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_op7ga")
 }],
 "loop": true,
-"name": &"small_stop",
+"name": &"small_slide",
 "speed": 5.0
 }]
 
