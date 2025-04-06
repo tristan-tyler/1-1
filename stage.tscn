@@ -1,9 +1,108 @@
-[gd_scene load_steps=26 format=4 uid="uid://bvpf5h4h53aa5"]
+[gd_scene load_steps=29 format=4 uid="uid://bvpf5h4h53aa5"]
 
 [ext_resource type="Texture2D" uid="uid://dg7divl6u007w" path="res://NES - Super Mario Bros - Tileset.png" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ctipnmholglnu" path="res://NES - Super Mario Bros - Item and Brick Blocks.png" id="2_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ct23m2s6f3sqb" path="res://NES - Super Mario Bros - Enemies & Bosses.png" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://dsc16m8gculi1" path="res://blocks.gd" id="3_16g40"]
 [ext_resource type="Texture2D" uid="uid://brvtq2ovny0d2" path="res://NES - Super Mario Bros - Items Objects and NPCs.png" id="4_272bh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpggq"]
+atlas = ExtResource("4_272bh")
+region = Rect2(216, 8, 16, 16)
+
+[sub_resource type="Animation" id="Animation_4d7sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_vpggq")]
+}
+
+[sub_resource type="Animation" id="Animation_16g40"]
+resource_name = "bump_up"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.248223),
+"transitions": PackedFloat32Array(1, 2.37841, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_vpggq")]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("4_272bh")
+region = Rect2(180, 54, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("4_272bh")
+region = Rect2(190, 54, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("4_272bh")
+region = Rect2(200, 54, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
+atlas = ExtResource("4_272bh")
+region = Rect2(210, 54, 8, 8)
+
+[sub_resource type="Animation" id="Animation_rj586"]
+resource_name = "fireball"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_0hol4"), SubResource("AtlasTexture_q6r6c"), SubResource("AtlasTexture_kdubu"), SubResource("AtlasTexture_d21ai")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir8iy"]
+_data = {
+&"RESET": SubResource("Animation_4d7sh"),
+&"bump_up": SubResource("Animation_16g40"),
+&"fireball": SubResource("Animation_rj586")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("1_1bvp3")
@@ -138,14 +237,25 @@ texture = ExtResource("2_lquwl")
 5:7/animation_frame_1/duration = 0.25
 5:7/animation_frame_2/duration = 0.25
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:7/0/custom_data_0 = &"coin"
 8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:7/0 = 0
+17:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:7/0 = 0
+18:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 20:7/0 = 0
+20:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 21:7/0 = 0
+21:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_ta5nu"]
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "contents"
+custom_data_layer_0/type = 21
 sources/0 = SubResource("TileSetAtlasSource_d2bti")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta5nu"]
@@ -220,70 +330,25 @@ sources/2 = SubResource("TileSetAtlasSource_x0ka3")
 sources/1 = SubResource("TileSetAtlasSource_hqns4")
 sources/0 = SubResource("TileSetAtlasSource_ir8iy")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
-atlas = ExtResource("4_272bh")
-region = Rect2(180, 54, 8, 8)
-
-[sub_resource type="Animation" id="Animation_4d7sh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("AtlasTexture_0hol4")]
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
-atlas = ExtResource("4_272bh")
-region = Rect2(190, 54, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
-atlas = ExtResource("4_272bh")
-region = Rect2(200, 54, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
-atlas = ExtResource("4_272bh")
-region = Rect2(210, 54, 8, 8)
-
-[sub_resource type="Animation" id="Animation_rj586"]
-resource_name = "fireball"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [SubResource("AtlasTexture_0hol4"), SubResource("AtlasTexture_q6r6c"), SubResource("AtlasTexture_kdubu"), SubResource("AtlasTexture_d21ai")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir8iy"]
-_data = {
-&"RESET": SubResource("Animation_4d7sh"),
-&"fireball": SubResource("Animation_rj586")
-}
-
 [node name="Stage" type="Node2D"]
 texture_filter = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../QBumpUp")
+libraries = {
+&"": SubResource("AnimationLibrary_ir8iy")
+}
+autoplay = "fireball"
+
 [node name="EnvironmentLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAAAAAAAAAAgAAkAAAAAAAAAAAAhAAkAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAADAAAAAAACAAMAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAAAAAAAAAAgAAkAAAAAAAAAAAAhAAkAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAADAAAAAAACAAMAAAAAAAEAAAAKAAUAAAACAAAAAAAKAAYAAAACAAAAAAAKAAcAAAACAAAAAAAKAAgAAAACAAAAAAAKAAQAAAABAAAAAAAMAAQAAAABAAAAAAAMAAUAAAACAAAAAAAMAAYAAAACAAAAAAAMAAcAAAACAAAAAAAMAAgAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_ir8iy")
 use_kinematic_bodies = true
 
 [node name="BlockLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAEAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_ta5nu")
+script = ExtResource("3_16g40")
 
 [node name="EnemyLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAIAAAAAAAIAAAACAAIAAAAAAAEAAAA=")
@@ -304,8 +369,5 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 64.0
 initial_velocity_max = 64.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CPUParticles2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_ir8iy")
-}
-autoplay = "fireball"
+[node name="QBumpUp" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_vpggq")

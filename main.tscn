@@ -9,4 +9,3 @@ texture_filter = 1
 [node name="Stage" parent="." instance=ExtResource("2_0xm2m")]
 
 [node name="Player" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(8, 32)

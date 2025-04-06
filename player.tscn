@@ -1,13 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://ksrd2u44hbs5"]
+[gd_scene load_steps=21 format=3 uid="uid://ksrd2u44hbs5"]
 
 [ext_resource type="Script" uid="uid://1lnrrk0q04k4" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://dwpmbbgytd6cr" path="res://NES - Super Mario Bros - Mario & Luigi.png" id="2_onrkg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(15.625, 31.4219)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
-size = Vector2(15.625, 15.7109)
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("2_onrkg")
@@ -180,13 +177,13 @@ texture_filter = 1
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_4flbx")
 
-[node name="big_collider" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_onrkg")
+[node name="big_collider" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(8, -32, -7.9, -32, -7.9, 0, 8, 0)
 
 [node name="small_collider" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_i3pqv")
+disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(0, -16)

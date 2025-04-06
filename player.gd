@@ -7,8 +7,7 @@ var jump = true
 var jump_start = position
 var jump_max = 80
 var gravity = 800
-var friction = 0.05
-
+var friction = 0.1
 
 func _physics_process(delta: float) -> void:
 	var friction_offset = velocity.x * -friction
@@ -33,11 +32,21 @@ func _physics_process(delta: float) -> void:
 		jump = false
 
 	if move_and_slide():
-		if is_on_ceiling_only():
+		var collision = get_last_slide_collision()
+		var collider = collision.get_collider()
+		if is_on_ceiling():
+			print("ceiling")
 			jump = false
-		if is_on_floor_only():
+			if collider.has_method("headbutt"):
+				collider.call("headbutt", collision.get_position())
+		if is_on_floor():
+			print("floor")
 			jump = true
 			jump_start = position
+		if is_on_wall():
+			print("wall")
+	else:
+		print("air")
 	velocity += Vector2.DOWN * delta * gravity
 
 func _process(delta: float) -> void:
@@ -54,7 +63,7 @@ func _process(delta: float) -> void:
 		input_animation = "big_slide"
 	elif Input.is_action_pressed("ui_left") and 0.0 < velocity.x:
 		input_animation = "big_slide"
-	elif abs(velocity.x) > speed * delta:
+	elif abs(velocity.x) > speed * friction:
 		input_animation = "big_run"
 
 	$"AnimatedSprite2D".play(input_animation)
