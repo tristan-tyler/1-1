@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.572549, 0.564706, 1, 1)
